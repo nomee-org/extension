@@ -4,14 +4,12 @@ import {
   X,
   Trash2,
   Plus,
-  AlertCircle,
   CheckCircle,
   Info,
 } from "lucide-react";
 import { toast, Toaster } from "sonner";
 import ConfirmDialog from "./ConfirmDialog";
 import AlertDialog from "./AlertDialog";
-import type { Notification, NotificationType } from "../types/chrome";
 
 const Settings: React.FC = () => {
   const [blacklistedDomains, setBlacklistedDomains] = useState<string[]>([]);
@@ -166,10 +164,7 @@ const Settings: React.FC = () => {
     const domainRegex =
       /^[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9](?:\.[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9])*$/;
     return (
-      domainRegex.test(domain) &&
-      domain.includes(".") &&
-      domain.length >= 3 &&
-      domain.length <= 253
+      domainRegex.test(domain) && domain.length >= 3 && domain.length <= 253
     );
   };
 
